@@ -1,74 +1,78 @@
-# TASK MANAGER
+# task manager program
 tasks = []
 
 def add_task():
-    new_task = input("Enter a new task: ")
-    tasks.append(new_task)
-    print("Task Added!\n")
+    t = input("Enter a task: ")
+    tasks.append(t)
+    print("Task added\n")
 
-def view_task():
+
+def view_tasks():
     if len(tasks) == 0:
-        print("No task found!\n")
+        print("No tasks yet\n")
         return
     for i in range(len(tasks)):
-        print(i+1, ":", tasks[i])
+        print(i+1, tasks[i])
     print()
 
-def save_task():
-    f = open("tasks.txt", "w")
+
+def save_tasks():
+    f = open("tasks.txt","w")
     for t in tasks:
         f.write(t + "\n")
     f.close()
-    print("Tasks saved successfully!\n")
+    print("Saved\n")
 
-def load_task():
+
+def load_tasks():
     try:
-        f = open("tasks.txt", "r")
-        tasks.clear()  
+        f = open("tasks.txt","r")
+        tasks.clear()
         for line in f:
             tasks.append(line.strip())
         f.close()
-        print("Tasks loaded!\n")
-    except FileNotFoundError:
-        print("No saved file found!\n")
+        print("Loaded\n")
+    except:
+        print("No file found\n")
+
 
 def delete_task():
-    view_task()
+    view_tasks()
     if len(tasks) == 0:
         return
     try:
-        n = int(input("Enter the task number to delete: "))
-        if 1 <= n <= len(tasks):
-            tasks.pop(n - 1)
-            print("Task deleted!\n")
+        n = int(input("which task number to delete: "))
+        if n > 0 and n <= len(tasks):
+            tasks.pop(n-1)
+            print("deleted\n")
         else:
-            print("Invalid number\n")
-    except ValueError:
-        print("Please enter a valid number!\n")
+            print("wrong number\n")
+    except:
+        print("enter a number only\n")
 
-# MAIN MENU
+
 while True:
-    print("1 - Add Task")
-    print("2 - Save Task")
-    print("3 - View Task")
-    print("4 - Delete Task")
-    print("5 - Load Task")
-    print("6 - Exit")
+    print("1 add")
+    print("2 save")
+    print("3 view")
+    print("4 delete")
+    print("5 load")
+    print("6 exit")
 
-    choice = input("Enter your choice: ")
+    ch = input("choice: ")
 
-    if choice == "1":
+    if ch == "1":
         add_task()
-    elif choice == "2":
-        save_task()
-    elif choice == "3":
-        view_task()
-    elif choice == "4":
+    elif ch == "2":
+        save_tasks()
+    elif ch == "3":
+        view_tasks()
+    elif ch == "4":
         delete_task()
-    elif choice == "5":
-        load_task()
-    elif choice == "6":
-        print("Goodbye!")
+    elif ch == "5":
+        load_tasks()
+    elif ch == "6":
+        print("bye")
         break
     else:
-        print("Enter a valid choice!\n")
+        print("Invalid\n")
