@@ -1,8 +1,5 @@
 TASK MANAGER – Python Project
 
-A simple command-line To-Do List Application built using Python.
-This project helps users add, view, delete, save, and load tasks using lists and file handling.
-
 Overview
 
 This Task Manager lets users maintain a list of tasks within a program.
@@ -88,6 +85,37 @@ Enter your choice: 1
 Enter a new task: Study Python
 Task Added!
 
+Educational Concepts Used
+
+This project demonstrates:
+
+List operations (append, pop, clear)
+
+Functions
+
+Menu-driven logic
+
+While loops
+
+If–elif–else
+
+File handling (open, write, read)
+
+Exception handling (FileNotFoundError)
+
+Perfect for college first-year Python assignments.
+
+Future Improvements (Optional)
+
+Add task priority levels
+
+Add due dates
+
+Save tasks using JSON
+
+Create a GUI using Tkinter
+
+Add task editing option
 Educational Concepts Used
 
 This project demonstrates:
